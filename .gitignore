@@ -1,3 +1,4 @@
+# xv6 build artifacts
 *~
 _*
 *.o
@@ -16,3 +17,78 @@ kernel/kernel
 user/usys.S
 .gdbinit
 TAGS
+
+# User programs (compiled binaries)
+user/_*
+
+# Nix
+result
+result-*
+.direnv/
+.envrc
+
+# IDEs and Editors
+## JetBrains IDEs (CLion, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+cmake-build-*/
+
+## Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+.netrwhist
+
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# General development
+*.log
+*.swp
+*.swo
+*~
+.cache/
+compile_commands.json
+.ccls-cache/
+.clangd/
+
+# Python (for test scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+env/
+
+# GDB
+.gdb_history
+
+# Core dumps
+core
+core.*
+vgcore.*

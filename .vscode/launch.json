@@ -1,0 +1,74 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug xv6 Kernel",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/kernel/kernel",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb-multiarch",
+      "miDebuggerServerAddress": "localhost:26000",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set architecture to RISC-V 64-bit",
+          "text": "set arch riscv:rv64",
+          "ignoreFailures": false
+        },
+        {
+          "description": "Load kernel symbols",
+          "text": "file kernel/kernel",
+          "ignoreFailures": false
+        },
+        {
+          "description": "Connect to QEMU",
+          "text": "target remote localhost:26000",
+          "ignoreFailures": false
+        }
+      ],
+      "preLaunchTask": "Run xv6 with GDB",
+      "logging": {
+        "engineLogging": false
+      }
+    },
+    {
+      "name": "Attach to xv6 Kernel",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/kernel/kernel",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb-multiarch",
+      "miDebuggerServerAddress": "localhost:26000",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set architecture to RISC-V 64-bit",
+          "text": "set arch riscv:rv64",
+          "ignoreFailures": false
+        }
+      ],
+      "logging": {
+        "engineLogging": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "name": "xv6-riscv",
+      "includePath": [
+        "${workspaceFolder}/kernel",
+        "${workspaceFolder}/user"
+      ],
+      "defines": [
+        "__riscv",
+        "__riscv_xlen=64"
+      ],
+      "compilerPath": "${env:TOOLPREFIX}gcc",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64",
+      "compilerArgs": [
+        "-Wall",
+        "-Werror",
+        "-march=rv64gc",
+        "-nostdinc",
+        "-fno-builtin",
+        "-fno-strict-aliasing",
+        "-fno-common",
+        "-ffreestanding",
+        "-fno-pie",
+        "-no-pie"
+      ]
+    }
+  ],
+  "version": 4
+}
