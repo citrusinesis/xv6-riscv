@@ -32,6 +32,42 @@ The Makefile automatically:
 5. Links kernel at 0x80000000 (KERNBASE) per `kernel/kernel.ld`
 6. Links user programs at 0x0 per `user/user.ld`
 
+### QEMU Tips
+
+**Exiting QEMU:**
+- Press `Ctrl-A` then `X` to quit QEMU
+- Or type `Ctrl-A` then `C` to enter QEMU monitor, then type `quit`
+
+**QEMU Monitor:**
+- `Ctrl-A` then `C` - Enter/exit QEMU monitor console
+- Useful monitor commands:
+  - `info registers` - Display CPU registers
+  - `info mem` - Show page table mappings
+  - `info qtree` - Display device tree
+  - `xp /10i $pc` - Disassemble 10 instructions at program counter
+  - `x /20x 0x80000000` - Display 20 words of memory at address (hex)
+
+**Debugging:**
+- Use `make qemu-gdb` to start QEMU with GDB server on port 26000
+- In another terminal, run `riscv64-unknown-elf-gdb` (or `gdb-multiarch`)
+- GDB will automatically connect and load symbols from `kernel/kernel`
+- Useful GDB commands:
+  - `b main` - Set breakpoint at main
+  - `c` - Continue execution
+  - `si` - Step one instruction
+  - `p variable` - Print variable value
+  - `x/20x $sp` - Examine stack
+
+**Customizing QEMU:**
+- Change CPU count: `make CPUS=1 qemu` (useful for debugging race conditions)
+- The Makefile passes `-machine virt -bios none -m 128M` to QEMU
+- Serial output goes to both QEMU console and `qemu.out` file
+
+**Common Issues:**
+- If xv6 hangs at boot, check QEMU version (need 7.2+)
+- If you see "timeout" errors in tests, the system might be running on 1 CPU
+- Filesystem corruption: `make clean` then rebuild
+
 ## High-Level Architecture
 
 ### Memory Layout
