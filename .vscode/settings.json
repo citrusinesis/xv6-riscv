@@ -1,26 +1,41 @@
 {
-  "C_Cpp.default.compilerPath": "${env:TOOLPREFIX}gcc",
-  "C_Cpp.default.intelliSenseMode": "gcc-x64",
-  "C_Cpp.default.cStandard": "c11",
-  "C_Cpp.default.includePath": [
-    "${workspaceFolder}/kernel",
-    "${workspaceFolder}/user"
-  ],
-  "C_Cpp.default.defines": [],
-  "files.associations": {
-    "*.h": "c",
-    "*.c": "c",
-    "*.S": "asm"
-  },
-  "files.exclude": {
-    "**/*.o": true,
-    "**/*.d": true,
-    "**/*.asm": true,
-    "**/*.sym": true,
-    "**/*.img": true,
-    "**/vectors.S": true
-  },
-  "editor.formatOnSave": false,
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true
+    "C_Cpp.default.compilerPath": "${env:TOOLPREFIX}gcc",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.compilerArgs": [
+        "-march=rv64gc",
+        "-nostdinc",
+        "-fno-builtin",
+        "-fno-stack-protector"
+    ],
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/kernel",
+        "${workspaceFolder}/user"
+    ],
+    "C_Cpp.default.defines": [],
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+        "*.S": "asm"
+    },
+    "files.exclude": {
+        "**/*.o": true,
+        "**/*.d": true,
+        "**/*.asm": true,
+        "**/*.sym": true,
+        "**/*.img": true,
+        "**/vectors.S": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnType": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "C_Cpp.clang_format_sortIncludes": true
 }
